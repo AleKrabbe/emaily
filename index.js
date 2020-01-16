@@ -1,12 +1,11 @@
-import express from "express";
-import mongoose from "mongoose";
-import cookieSession from "cookie-session";
-import passport from "passport";
+const express = require("express");
+const mongoose = require("mongoose");
+const cookieSession = require("cookie-session");
+const passport = require("passport");
 
-import authRoutes from "./routes/authRoutes.js";
-import keys from "./config/keys.js";
-import "./models/User.js";
-import "./services/passport.js";
+const keys = require("./config/keys.js");
+require("./models/User.js");
+require("./services/passport.js");
 
 mongoose.connect(keys.mongoURI, {
   useNewUrlParser: true,
@@ -21,7 +20,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 
-authRoutes(app);
+require("./routes/authRoutes.js")(app);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT);

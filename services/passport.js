@@ -1,8 +1,8 @@
-import passport from "passport";
-import GoogleStrategy from "passport-google-oauth20";
-import mongoose from "mongoose";
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20");
+const mongoose = require("mongoose");
 
-import keys from "../config/keys.js";
+const keys = require("../config/keys.js");
 
 const User = mongoose.model("users");
 
